@@ -27,7 +27,7 @@ class KMeans:
 		for c in range(self.n_centroids):
 			for i in self.clusters[c]:
 				cost += LA.norm(X[i] - self.centroids[c])
-		return cost/X.shape[0]
+		return cost / X.shape[0]
 
 	def InitCentroids(self, X):
 		if self.random_state:
@@ -50,58 +50,58 @@ class KMeans:
 		idx_clusters = [[] for _ in range(self.n_centroids)]
 
 		for i in range(row):
-		    shortest = 1e10
-		    index = -1
-		    x = X[i]
-		    for c in range(self.n_centroids):
-		        distance = LA.norm(x-self.centroids[c])
-		        if distance < shortest:
-		            shortest = distance
-		            index = c
-		    idx_clusters[index].append(i)
-		    sum_clusters[index] += x #We don't need to compute sum of clusters again, 
+			shortest = 1e10
+			index = -1
+			x = X[i]
+			for c in range(self.n_centroids):
+				distance = LA.norm(x-self.centroids[c])
+				if distance < shortest:
+					shortest = distance
+					index = c
+			idx_clusters[index].append(i)
+			sum_clusters[index] += x #We don't need to compute sum of clusters again, 
 		    							#because we are already calculating here!
 
 		#Removing centroids with empty cluster!
 		for i in range(self.n_centroids-1,-1,-1):
-		    if not idx_clusters[i]:
-		        del idx_clusters[i]
-		        sum_clusters = np.delete(sum_clusters, i, 0)
-		        self.centroids = np.delete(self.centroids, i, 0)
-		        self.n_centroids -= 1
+			if not idx_clusters[i]:
+				del idx_clusters[i]
+				sum_clusters = np.delete(sum_clusters, i, 0)
+				self.centroids = np.delete(self.centroids, i, 0)
+				self.n_centroids -= 1
 
 		self.clusters = idx_clusters
 		return sum_clusters
 	
 	#Compute Means
 	def computeMeans(self, X, sum_clusters):
-	    prev_centroids = np.copy(self.centroids)
-	    
-	    for c in range(self.n_centroids):
-	        n = len(self.clusters[c])
-	        self.centroids[c] = sum_clusters[c]/n
-	        
-	    return prev_centroids
+		prev_centroids = np.copy(self.centroids)
+		
+		for c in range(self.n_centroids):
+			n = len(self.clusters[c])
+			self.centroids[c] = sum_clusters[c]/n
+		
+		return prev_centroids
 	    
 	def checkChanges(self, prev_centroids):
-	    for c in range(self.n_centroids):
-	        if LA.norm(prev_centroids[c]-self.centroids[c]) > self.threshold:
-	            return True
-	    return False
+		for c in range(self.n_centroids):
+			if LA.norm(prev_centroids[c]-self.centroids[c]) > self.threshold:
+				return True
+		return False
 	    
 	#--------MAIN FUNCTION------#      
 	def fit(self, X, y=None):
-	    self.InitCentroids(X)
-
-	    for i in range(self.epoch):
-	        print("Iteration : " + str(i), end=" | ")
-	        
-	        sum_clusters = self.findClosestCentroids(X)
-	        prev_centroids = self.computeMeans(X, sum_clusters)
-
-	        print("Avg. Cost : " + str(self.cost(X)))
-	        if not self.checkChanges(prev_centroids):
-	            break
+		self.InitCentroids(X)
+		
+		for i in range(self.epoch):
+			print("Iteration : " + str(i), end=" | ")
+			
+			sum_clusters = self.findClosestCentroids(X)
+			prev_centroids = self.computeMeans(X, sum_clusters)
+			
+			print("Avg. Cost : " + str(self.cost(X)))
+			if not self.checkChanges(prev_centroids):
+				break
 
 	def transform(self, X):
 		X_ = np.zeros((X.shape[0], self.n_centroids))
@@ -115,16 +115,17 @@ class KMeans:
 	def predict(self, X):
 		row, col = X.shape
 		idx_clusters = []
-
+		
 		for i in range(row):
-		    shortest = 1e10
-		    index = 0
-		    x = X[i]
-		    for c in range(self.n_centroids):
-		        distance = LA.norm(x-self.centroids[c])
-		        if distance < shortest:
-		            shortest = distance
-		            index = c
-		    idx_clusters.append(index)
+			shortest = 1e10
+			index = 0
+			x = X[i]
+			for c in range(self.n_centroids):
+				distance = LA.norm(x-self.centroids[c])
+				if distance < shortest:
+					shortest = distance
+					index = c
+			idx_clusters.append(index)
 
 		return np.array(idx_clusters)
+	
