@@ -34,7 +34,7 @@ class KMeans:
 			np.random.seed(self.random_state)  #Initializing the seed.
 			seed(self.random_state) 
 			
-		row, col = X.shape
+		_, col = X.shape
 
 		#Option 1
 		#indexes = sample(range(row), self.n_centroids)
@@ -113,7 +113,7 @@ class KMeans:
 		return X_
 
 	def predict(self, X):
-		row, col = X.shape
+		row, _ = X.shape
 		idx_clusters = []
 		
 		for i in range(row):

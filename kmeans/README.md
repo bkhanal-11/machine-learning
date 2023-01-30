@@ -30,3 +30,14 @@ c^{t} = \underset{c}{\mathrm{argmin}} \frac{1}{N} \sum_{i}^{N} \sum_{i}^{k} {\de
 
 4. Update $t=t+1$, repeat Step 2 and 3 until $c^{t}$ does not change anymore
 
+
+## Clustering Result
+
+With kmeans implemented as above, it was tested on 2D data points created at random.
+
+![2D Clustering](assets/clusters.png)
+
+Also, 3D was also tested with relevant data.
+
+![2D Clustering](assets/clusters3d.png)
+
