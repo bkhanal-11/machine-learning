@@ -14,7 +14,7 @@ SSD = \sum_{cluster i} \sum_{x \in cluster i} ( x - {c_{i}}^2)
 
 Hence, k-means clustering can be carried out as follow:
 
-1. Initialize ($t = 0$): cluster centers $c_{1}. c_{2},...,c_{k}$
+1. Initialize $(t = 0)$: cluster centers $c_{1}. c_{2},...,c_{k}$
      - commonly used: random initialization 
      - or greedy choose K to minimize residual
 
