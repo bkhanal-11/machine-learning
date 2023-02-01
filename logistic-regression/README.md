@@ -40,7 +40,7 @@ $$
 Here, if $y = 1 \rightarrow \mathcal{L}(\hat{y} - y) = -log \hat{y}$, we want $log \hat{y}$ to be large which imply $\hat{y}$ should be large and by sigmoid function, $\hat{y} \approx 1$. Also, if $y = 0 \rightarrow \mathcal{L}(\hat{y} - y) = -log (1- \hat{y})$, we want $(1- log \hat{y})$ to be large which imply $\hat{y}$ should be small and by sigmoid function, $\hat{y} \approx 0$. This is another reason why we use log-likelihood instead of SSD. Similarly, we have cost function as 
 
 $$
-\mathcal{J}(w,b) = - \frac{{1}{m} \sum_{i=1}^{m} \[ y_{i} log \hat{y}_{i} + (1 - y_{i}) log (1 - \hat{y}_{i}) \]
+\mathcal{J}(w,b) = - \frac{1}{m} \sum_{i=1}^{m} \[ y_{i} log \hat{y}_{i} + (1 - y_{i}) log (1 - \hat{y}_{i}) \]
 $$
 
 We want to find $w, b$ such that $\mathcal{J}(w,b)$ is minimized. So we use gradient descent algorithm with learning rate $\alpha$ to update $w,b$ iteratively.
