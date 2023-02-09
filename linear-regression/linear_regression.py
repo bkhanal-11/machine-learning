@@ -7,9 +7,6 @@ class LinearRegression:
         self.theta_2 = None
     
     def initialize_theta(self):
-        """
-        This function creates a vector of zeros of shape (dim, 1) for w and initializes b to 0.
-        """
         theta_1 = 0.0
         theta_2 = 0.0
         
@@ -19,24 +16,26 @@ class LinearRegression:
         """
         Implement the cost function and its gradient for the propagation explained above
         """
-        
         m = X.shape[0]
-        
+        Y = np.reshape(Y, (Y.shape[0],1))
+
         # FORWARD PROPAGATION (FROM X TO COST)
         Z = self.theta_2 * X + self.theta_1
+
+        # print(f'Cost: {self.cost(Z, Y)}')
         
         # BACKWARD PROPAGATION (TO FIND GRAD)
-        dtheta_1 = np.sum(Z - Y) / m
-        dtheta_2 = np.dot(X , (Z - Y)) / m
+        dtheta_1 = 2 * np.sum(Z - Y) / m
+        dtheta_2 = 2 * np.dot(X.T , (Z - Y)) / m
 
         grads = {"dtheta_1": dtheta_1,
                 "dtheta_2": dtheta_2}
         
         return grads
     
-    def fit(self, X, Y, num_iterations=1000, learning_rate=0.0005):
+    def fit(self, X, Y, num_iterations=1000, learning_rate=0.005):
         """
-        This function optimizes w and b by running a gradient descent algorithm
+        This function optimizes theta_1 and theta_2 by running a gradient descent algorithm
         """
         self.theta_1, self.theta_2 = self.initialize_theta()
         
@@ -60,3 +59,13 @@ class LinearRegression:
         Z = self.theta_2 * X + self.theta_1
         
         return Z
+
+    def cost(self, pred, Y):
+        '''
+        Computes cost of linear regression
+        '''
+        m = Y.shape[0]
+        cost = np.sum((pred - Y)**2) / m
+
+        return cost
+    
