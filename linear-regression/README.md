@@ -30,7 +30,14 @@ We update $\theta_{1}$ and $\theta_{2}$ as follow:
 \theta_{2} = \theta_{2} - \alpha \cdot \partial \theta_{2}
 ```
 
-where $\partial \theta_{1} = \frac{\partial \mathcal{J}(\theta_{1},\theta_{2})}{\partial \theta_{1}} = \frac{2}{n} \sum_{i=1}^{n} (pred_{i} - y_{i})$, $\partial \theta_{2} = \frac{\partial \mathcal{J}(\theta_{1},\theta_{2})}{\partial \theta_{2}} = \frac{2}{n} \sum_{i=1}^{n} (pred_{i} - y_{i}) \cdot x_{i}$ and $\alpha$ is the learning rate.
+where $\alpha$ is the learning rate and 
+$$
+\partial \theta_{1} = \frac{\partial \mathcal{J}(\theta_{1},\theta_{2})}{\partial \theta_{1}} = \frac{2}{n} \sum_{i=1}^{n} (pred_{i} - y_{i})
+$$ 
+
+$$
+\partial \theta_{2} = \frac{\partial \mathcal{J}(\theta_{1},\theta_{2})}{\partial \theta_{2}} = \frac{2}{n} \sum_{i=1}^{n} (pred_{i} - y_{i}) \cdot x_{i}
+$$
 
 
 ## Implementation
