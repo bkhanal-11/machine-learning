@@ -31,6 +31,7 @@ We update $\theta_{1}$ and $\theta_{2}$ as follow:
 ```
 
 where $\alpha$ is the learning rate and 
+
 $$
 \partial \theta_{1} = \frac{\partial \mathcal{J}(\theta_{1},\theta_{2})}{\partial \theta_{1}} = \frac{2}{n} \sum_{i=1}^{n} (pred_{i} - y_{i})
 $$ 
