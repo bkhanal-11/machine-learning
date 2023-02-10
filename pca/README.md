@@ -53,3 +53,11 @@ In order to compress a new n-dimensional pattern to a m-dimensional feature vect
 **Usage for uncompression (decoding)**
 
 In order to approximately restore $x$ from its feature vector $f(x)$, compute $x_{restored} = \mu + U_{m} f(x)$. Equivalently, in a more compact notion, compute $x_{restored} = [U_{m}, \mu][f(x);1]$.
+
+### Implementation
+
+After implementing mathematics above in python with the help of numpy and pandas, the scripts were tested with ![Iris Flower Dataset](https://archive.ics.uci.edu/ml/datasets/Iris). 
+
+| Dimension Reduction Visualization in 1D | Dimension Reduction Visualization in 2D |
+|:--------------:|:-----------:|
+|![Principal Component 1](assets/principal_component1.png)|![Dimensionality reduction to 2D](assets/principal_component2.png)|

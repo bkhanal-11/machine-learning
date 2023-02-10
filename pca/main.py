@@ -29,7 +29,7 @@ def visualize_data(result):
     viz_pc= plt
     viz_pc.figure(figsize=(20, 10))
     sns.scatterplot(data = result, x = 'PC1', y = 'PC2', hue = "labels", s = 200)
-    viz_pc.savefig('assets/principal_component1.png')
+    viz_pc.savefig('assets/principal_component2.png')
     viz_pc.show()
 
 def main(df, num_pc):
