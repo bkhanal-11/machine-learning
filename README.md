@@ -2,6 +2,7 @@
 Implementation of different machine learning techniques,
 
 For resources: ![Machine Learning Collections](https://github.com/aladdinpersson/Machine-Learning-Collection.git)
+
 For datasets: ![Standard Machine Learning Datasets](https://machinelearningmastery.com/standard-machine-learning-datasets/)
 
 # ML Algorithms
