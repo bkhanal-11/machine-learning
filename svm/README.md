@@ -120,8 +120,27 @@ $$
 \alpha_{i} \text{and } \mu_{i}
 $$
 
-we can rewrite the constrained optimization problem as the primal Lagrangian function :
+we can rewrite the constrained optimization problem as the primal Lagrangian function:
+
+$$
+\underset{w, b, \xi}{\text{min }} \underset{\alpha, \mu}{\text{max }} \left[ \frac{1}{2} ||w||^{2} + C \frac{1}{n} \sum_{i} \xi_{i} - \sum_{i}\alpha_{i} [y_{i}(x_{i}\cdot w + b)- (1-\xi_{i})]-\sum_{i}\mu_{i}\xi_{i} \right]
+$$
+
 
 Instead of minimizing over $w, b$, subject to constraints, we can maximize over the multipliers subject to the relations obtained previously for $w, b$. This is called the dual Lagrangian formulation:
 
+$$
+\underset{\alpha}{\text{max}} \left[\sum_{i} \alpha_{i} - \frac{1}{2} \sum_{i, i'} \alpha_{i} \alpha_{i'} y_{i} y_{i'} x_{i} \cdot x_{i'}  \right]
+$$
+
+$$
+\begin{equation}
+\text{subject to } \begin{cases} 0 =  \sum_{\substack{i}} \alpha_{i} y_{i} \\ 0 \leq \alpha_{i} \leq C & \text{ for } i = 1,...,n \end{cases}
+\end{equation}
+$$
+
 This is now a reasonably straightforward quadratic programming problem, solved with Sequential Minimization Optimization. Once we have solved this problem for $\alpha$, we can easily work out the coefficients:
+
+$$
+w = \sum_{i} \alpha_{i} y_{i} x_{i}
+$$
