@@ -1,61 +1,10 @@
 # Machine Learning
-Implementation of different machine learning techniques,
 
 For resources: ![Machine Learning Collections](https://github.com/aladdinpersson/Machine-Learning-Collection.git)
 
 For datasets: ![Standard Machine Learning Datasets](https://machinelearningmastery.com/standard-machine-learning-datasets/)
 
 # ML Algorithms
-
-## Linear Regression
-
-Just like Naive Bayes is a good starting point for classification tasks, linear regression models are a good starting point for regression tasks. It is a machine learning algorithm based on supervised learning. It models a target prediction value based on independent varaibles. It is mostly used for finding out the relationship between variables and forecasting. Linear regression perform the task to predict a dependent variable value $y$ based on a given independent variable $x$. Hypothesis function for Linear Regression:
-
-```math
-y = \theta_{1} + \theta_{2} x
-```
-
-where $x$ is input training data and $y$ is the label to the data.
-
-When training the model, it fits the best line to predict the value of $y$ for a given value of $x$. The model gets the best regression fit line by finding intercept $\theta_{1}$ and coefficient (slope) of $x$, $\theta_{2}$. 
-
-By achieving the best fit regression line, the model aims to predict $y$ value such that the error difference between predicted value and true value is minimum. So, it is very important to update the $\theta_{1}$ and $\theta_{2}$ values, to reach the best value that minimize the error between predicted $y$, $pred$ and true $y$.
-
-```math
-\mathcal{J} = \frac{1}{n} \sum_{i=1}^{n} (pred_{i} - y_{i})^{2}
-```
-
-Cost function $\mathcal{J}$ of Linear Regression is Root Mean Square Error (RMSE) between predicted $y$ and true $y$.
-
-To update $\theta_{1}$ and $\theta_{2}$ values in order to reduce cost function (minimizing RMSE) and achieving the best fit line the model uses Gradient Descent. The idea is to start with random $\theta_{1}$ and $\theta_{2}$ values and then iteratively updating the values, reaching minimum cost. 
-
-## Support Vector Machine (SVM)
-
-SVM are powerful yet flexible supervised machine learning algorithms which are used both for classification and regression. But generally, they are used in classification problem. They are popular because of their ability to handle multiple continuous and categorical variables.
-
-An SVM model is basically a representation of different classes in a hyperplane in multidimensional space. The hyperplane will be generated in an iterative manner by SVM so that error can be minimized. The goal of SVM is to divide the datasets into classes to mind a minimum marginal hyperplane.
-
-Some important concepts in SVM:
-
-1. Support vectors
-
-Datapoints that are closest to the hyperplane is called support vectors. Separating line will be defined with the help of these data points.
-
-2. Hyperplane
-
-It is a decision plane or space which is divided between a set of objects having different classes.
-
-3. Margin
-
-It may be defined as the gap between two lines on the closest data point of different classes. It can be calculated as the perpendicular distance from the line to the support vectors. Large margin is considered as a good margin while samll margin is considered as a bad margin.
-
-The main goal of SVM is to divide the dataset into classes to find a maximum marginal hyperplane as follow:
-
-- First, SVM will generate hyperplanes iiteratively that segregates the classes in best way.
-
-- Then, it will choose the hyperplane that separate the classes correctly.
-
-Building an optimized hyperplane in a non linearly separable problem is done using kernels. The kernels are mathematically functions that convert the complex problem using the linear algebric form.
 
 ## Decision Trees and Random Forest
 
