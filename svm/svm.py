@@ -30,15 +30,25 @@ class SVM:
         self.alphas = np.array(sol["x"])
 
     def get_parameters(self, alphas):
+        """
+        Computes W, b parameter using support vectors 
+        and alphas for optimization. 
+        """
         threshold = 1e-5
 
-        sv = ((alphas > threshold) * (alphas < self.C)).flatten()
-        self.w = np.dot(X[sv].T, alphas[sv] * self.y[sv, np.newaxis])
-        self.b = np.mean(
-            self.y[sv, np.newaxis]
-            - self.alphas[sv] * self.y[sv, np.newaxis] * self.K[sv, sv][:, np.newaxis]
+        support_vectors = ((alphas > threshold) * (alphas < self.C)).flatten()
+
+        self.w = np.dot(
+            X[support_vectors].T, alphas[support_vectors] 
+            * self.y[support_vectors, np.newaxis]
         )
-        return sv
+
+        self.b = np.mean(
+            self.y[support_vectors, np.newaxis]
+            - self.alphas[support_vectors] * self.y[support_vectors, np.newaxis] 
+            * self.K[support_vectors, support_vectors][:, np.newaxis]
+        )
+        return support_vectors
 
     def predict(self, X):
         y_predict = np.zeros((X.shape[0]))
@@ -55,11 +65,14 @@ class SVM:
 
 if __name__ == "__main__":
     np.random.seed(1)
-    X, y = create_dataset(N = 50)
-    kernel = gaussian
-    svm = SVM(kernel=kernel)
-    svm.fit(X, y)
-    y_pred = svm.predict(X)
-    plot_contour(X, y, svm)
+    X, y = create_dataset(N = 100)
+    kernel = [linear, polynomial, gaussian]
 
-    print(f"Accuracy: {sum(y==y_pred)/y.shape[0]}")
+    for k in kernel:
+        svm = SVM(kernel=k)
+        svm.fit(X, y)
+        y_pred = svm.predict(X)
+        plot_contour(X, y, svm, kernel = k.__name__)
+
+        print(f"Accuracy using {k.__name__}: {sum(y == y_pred) / y.shape[0]}")
+        

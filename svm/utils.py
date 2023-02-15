@@ -9,7 +9,7 @@ def polynomial(x, z, p = 5):
 
 
 def gaussian(x, z, sigma = 0.1):
-    return np.exp(-np.linalg.norm(x - z, axis=1) ** 2 / (2 * (sigma ** 2)))
+    return np.exp(- np.linalg.norm(x - z, axis = 1) ** 2 / (2 * (sigma ** 2)))
 
 def create_dataset(N, D = 2, K = 2):
     X = np.zeros((N * K, D))  # data matrix (each row = single example)
@@ -31,7 +31,7 @@ def create_dataset(N, D = 2, K = 2):
 
     return X, y
 
-def plot_contour(X, y, svm):
+def plot_contour(X, y, svm, kernel):
     # plot the resulting classifier
     h = 0.01
     x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
@@ -47,5 +47,5 @@ def plot_contour(X, y, svm):
 
     # plt the points
     plt.scatter(X[:, 0], X[:, 1], c=y, s=40, cmap=plt.cm.Spectral)
-    plt.savefig(f'assets/output_data.png')
+    plt.savefig(f'assets/output_data_{kernel}.png')
     plt.show()
