@@ -144,3 +144,16 @@ This is now a reasonably straightforward quadratic programming problem, solved w
 $$
 w = \sum_{i} \alpha_{i} y_{i} x_{i}
 $$
+
+Sometimes, linear SVM classification task cannot be achieved due to data not being separated a simple line or a plane. For those dataset, instead of chnaging the algorithm, we can change the distribution of the input data by using **Kernels**. By using a kernel, rather than applying SVMs using the original input attributes x, we want to learn using some features representing the input attributes well. Some of the popular kernels are *Gaussian* and hig degree *polynomial functions*. 
+
+### Implementation 
+
+The implementation and mathematics presented above are inspired from ![Lecture Notes](https://see.stanford.edu/materials/aimlcs229/cs229-notes3.pdf) and ![Lecture Videos](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU) from Andrew Ng (Machine Learning, Stanford University). For otimizing the dual Lagrangian formulation, we use `cvxopt` package for python which makes optimizing quadratic functions easier and faster. 
+
+|  |  |
+|:--------------:|:-----------:|
+|<img width="600" alt="input data" src="assets/input_data.png">|<img width="600" alt="output data 1" src="assets/output_data_linear.png">|
+|Input Data|SVM with Linear Kernel (Accuracy = 0.7)|
+|<img width="600" alt="output data 2" src="assets/output_data_polynomial.png">|<img width="600" alt="output data 3" src="assets/output_data_gaussian.png">|
+|SVM with Polynomial Kernel (Accuracy = 0.95)|SVM with Gaussian Kernel (Accuracy = 0.99)|
