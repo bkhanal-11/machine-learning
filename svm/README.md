@@ -149,7 +149,7 @@ Sometimes, linear SVM classification task cannot be achieved due to data not bei
 
 ### Implementation 
 
-The implementation and mathematics presented above are inspired from ![Lecture Notes](https://see.stanford.edu/materials/aimlcs229/cs229-notes3.pdf) and ![Lecture Videos](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU) from Andrew Ng (Machine Learning, Stanford University) and with the help of tutorial ![here](https://www.youtube.com/watch?v=gBTtR0bs-1k&feature=youtu.be). For otimizing the dual Lagrangian formulation, we use `cvxopt` package for python which makes optimizing quadratic functions easier and faster. The result for sphiral shaped dataset is presented below.
+The implementation and mathematics presented above are inspired from [Lecture Notes](https://see.stanford.edu/materials/aimlcs229/cs229-notes3.pdf) and [Lecture Videos](https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU) from Andrew Ng (Machine Learning, Stanford University) and with the help of tutorial [here](https://www.youtube.com/watch?v=gBTtR0bs-1k&feature=youtu.be). For otimizing the dual Lagrangian formulation, we use `cvxopt` package for python which makes optimizing quadratic functions easier and faster. The result for sphiral shaped dataset is presented below.
 
 |  |  |
 |:--------------:|:-----------:|

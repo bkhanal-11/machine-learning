@@ -56,7 +56,7 @@ In order to approximately restore $x$ from its feature vector $f(x)$, compute $x
 
 ### Implementation
 
-After implementing mathematics above in python with the help of numpy and pandas, the scripts were tested with ![Iris Flower Dataset](https://archive.ics.uci.edu/ml/datasets/Iris). 
+After implementing mathematics above in python with the help of numpy and pandas, the scripts were tested with [Iris Flower Dataset](https://archive.ics.uci.edu/ml/datasets/Iris). 
 
 | Dimension Reduction Visualization in 1D | Dimension Reduction Visualization in 2D |
 |:--------------:|:-----------:|
